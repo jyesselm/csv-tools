@@ -22,7 +22,7 @@ cwd = os.getcwd()
 parent = os.path.dirname(cwd)
 sys.path.insert(0, parent)
 
-import csv-tools
+import csv_tools
 
 # -- General configuration -----------------------------------------------------
 

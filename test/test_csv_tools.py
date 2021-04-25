@@ -2,10 +2,10 @@
 Tests for `csv-tools` module.
 """
 import pytest
-from csv-tools import csv-tools
+from csv_tools import csv_tools
 
 
-class TestCsv-tools(object):
+class TestCsvtools(object):
 
     @classmethod
     def setup_class(cls):

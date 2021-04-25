@@ -33,11 +33,11 @@ setup(
     author_email='jyesselm@unl.edu',
     url='https://github.com/jyesselm/csv-tools',
     packages=[
-        'csv-tools',
+        'csv_tools',
     ],
-    package_dir={'csv-tools': 'csv-tools'},
+    package_dir={'csv_tools': 'csv_tools'},
     py_modules=[
-        'csv-tools / csv-tools.py'
+        'csv_tools/csv_tools.py'
     ],
     include_package_data=True,
     install_requires=requirements,
