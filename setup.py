@@ -35,9 +35,8 @@ setup(
     packages=[
         'csv_tools',
     ],
-    package_dir={'csv_tools': 'csv_tools'},
     py_modules=[
-        'csv_tools/csv_tools.py'
+        'csv_tools/csv_tools'
     ],
     include_package_data=True,
     install_requires=requirements,
@@ -51,6 +50,7 @@ setup(
     ],
     entry_points = {
         'console_scripts' : [
+            'csv_tools = csv_tools.csv_tools:main'
         ]
     }
 )

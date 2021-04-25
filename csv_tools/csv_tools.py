@@ -23,7 +23,12 @@ def main(input, output, add):
         dfs.append(pd.read_csv(fname))
     df = pd.concat(dfs)
     if add is not None:
-        spl = add.split()
+        spl = add.split(",")
+        for colinfo in spl:
+            name,val = colinfo.split("=")
+            df[name] = val
+
+    df.to_csv(output, index=False)
 
 
 if __name__ == "__main__":
