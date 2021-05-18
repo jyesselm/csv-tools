@@ -3,8 +3,8 @@ import pandas as pd
 
 
 @click.command()
-@click.option(
-    "-i", "--input", required=True, help="input csv(s), seperated by ','",
+@click.argument(
+    "input"
 )
 @click.option(
     "-o", "--output", required=False, default="output.csv", help="output csv",
@@ -16,12 +16,34 @@ import pandas as pd
     default=None,
     help="columns to add in the format COLNAME1=VAL,COLNAME2=VAL",
 )
-def main(input, output, add):
+@click.option(
+    "-d",
+    "--drop",
+    required=False,
+    default=None,
+)
+@click.option(
+    "-k",
+    "--keep",
+    required=False,
+    default=None,
+)
+def main(input, output, add, drop, keep):
     spl = input.split(",")
     dfs = []
     for fname in spl:
         dfs.append(pd.read_csv(fname))
     df = pd.concat(dfs)
+    if drop is not None:
+        spl = drop.split(",")
+        for col in spl:
+            df = df.drop(col, axis=1)
+    if keep is not None:
+        cols = df.columns
+        spl = keep.split(",")
+        for c in cols:
+            if c not in spl:
+                df = df.drop(c, axis=1)
     if add is not None:
         spl = add.split(",")
         for colinfo in spl:
